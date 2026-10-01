@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\BukuController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,3 +25,10 @@ Route::post('/siswa/add', [SiswaController::class, 'store'])->name('siswa.kirim'
 Route::get('/siswa/update/{id}', [SiswaController::class, 'update_view'])->name('siswa.edit');
 Route::put('/siswa/update/{id}', [SiswaController::class, 'update'])->name('siswa.update');
 Route::get('/siswa/delete/{id}', [SiswaController::class, 'destroy'])->name('siswa.delete');
+Route::get('/buku',[BukuController::class, 'index']);
+Route::get('/buku/add',[BukuController::class, 'store']);
+Route::get('/buku/add',[BukuController::class, 'store_view'])->name('buku.tambah');
+Route::post('/buku/add',[BukuController::class, 'store'])->name('buku.kirim');
+Route::get('/buku/update/{id}',[BukuController::class, 'update_view'])->name('buku.edit');
+Route::put('/buku/update/{id}',[BukuController::class, 'update'])->name('buku.update');
+Route::get('/buku/delete/{id}',[BukuController::class, 'destroy'])->name('buku.delete');
