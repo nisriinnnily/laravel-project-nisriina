@@ -5,6 +5,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\LaporanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,3 +34,5 @@ Route::post('/buku/add',[BukuController::class, 'store'])->name('buku.kirim');
 Route::get('/buku/update/{id}',[BukuController::class, 'update_view'])->name('buku.edit');
 Route::put('/buku/update/{id}',[BukuController::class, 'update'])->name('buku.update');
 Route::get('/buku/delete/{id}',[BukuController::class, 'destroy'])->name('buku.delete');
+Route::resource('pegawai', PegawaiController::class);
+Route::get('/laporan', [LaporanController::class, 'index']);
